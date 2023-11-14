@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Task Manager v.0</h1>
+<ul>
+    {% for task in task_list %}
+        <li>Title: {{task.title}}</li>
+        <li>Task Date: {{task.date}}</li>
+        <li>Task Time: {{task.task_time}}</li>
+        <li>Description: {{task.details}}</li>
+        <li>Is completed: {{task.is_completed}}</li>
+        <li>Task id: {{task.task_id}}</li>
+        {% comment %} <li>
+            Is Completed:
+            <form method="post" action="{% url 'mark_completed' task.id %}">
+                {% csrf_token %}
+                <input type="checkbox" name="completed" {% if task.is_completed %}checked{% endif %}>
+                <input type="submit" value="Mark Completed">
+            </form>
+        </li> {% endcomment %}
+        
+    {% endfor %}
+</ul>
+{% endblock content %}

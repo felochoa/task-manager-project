@@ -1,2 +1,5 @@
 env/
 __pycache__/
+__pycache__/*
+task_manager_project/__pycache__/settings.cpython-310.pyc
+task_manager_project/__pycache__/urls.cpython-310.pyc

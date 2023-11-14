@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "page",# new test app
+    "tasks", #app for showing the tasks
 ]
 
 MIDDLEWARE = [
