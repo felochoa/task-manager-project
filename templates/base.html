@@ -1,10 +1,18 @@
-
-<header>
-    <a href="{%url 'home'%}">Home</a> 
+{% load static %}
+<html>
+    <header>
+        
+        
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <a href="{%url 'home'%}">Home</a> 
+        
+        <a href="{%url 'about'%}">About</a>
     
-    <a href="{%url 'about'%}">About</a>
-
-    <a href="{%url 'tasks'%}">Task manager</a>
-</header>
-
-{% block content %} {% endblock content %}
+        <a href="{%url 'tasks'%}">Task manager</a>
+    
+        <a href="{%url 'completed_tasks'%}">Completed tasks</a>
+    
+    </header>
+    
+    {% block content %} {% endblock content %}
+</html>

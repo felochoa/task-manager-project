@@ -1,29 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Task Manager</h1>
-<ul>
-    {% for task in task_list %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<h1>Completed tasks:</h1>
+
+    <ul>
+        {% for task in completed_tasks %}
         <li><a href="{% url 'task_detail' task.task_id %}">Title: {{task.title}}</a></li>
         <li>Task Date: {{task.date}}</li>
         <li>Task Time: {{task.task_time}}</li>
         <li>Description: {{task.details}}</li>
         <li>Task id: {{task.task_id}}</li>
-        <li>{{task.is_completed}}</li>
         <li>
-            Is Completed:
+            Move task to task manager:
             {% if task.task_id %}
-                <form method="post" action="{% url 'mark_completed' task_id=task.task_id %}">
+                <form method="post" action="{% url 'mark_uncompleted' task_id=task.task_id %}">
                     {% csrf_token %}
-                    <div name="completed" {% if task.is_completed %}checked{% endif %}>
-                    <input type="submit" value="Mark Completed">
+                    <input type="hidden" name="incomplete" value="True">
+                    <button type="submit">Incomplete Task</button>
                 </form>
             {% else %}
                 <!-- Handle the case where task.id is None or empty -->
                 <p>Task ID is not valid.</p>
             {% endif %}
-        </li>
-        
-    {% endfor %}
-</ul>
+
+        {% endfor %}
+    </ul>
 {% endblock content %}
