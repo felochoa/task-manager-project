@@ -1,27 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% load static %}
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-</head>
 <h1>Completed tasks:</h1>
 
     <ul>
         {% for task in completed_tasks %}
-        <li><a href="{% url 'task_detail' task.task_id %}">Title: {{task.title}}</a></li>
+        <li><a href="{% url 'task_detail' task.id %}">Title: {{task.title}}</a></li>
         <li>Task Date: {{task.date}}</li>
         <li>Task Time: {{task.task_time}}</li>
         <li>Description: {{task.details}}</li>
-        <li>Task id: {{task.task_id}}</li>
+        <li>Task id: {{task.id}}</li>
         <li>
             Move task to task manager:
-            {% if task.task_id %}
-                <form method="post" action="{% url 'mark_uncompleted' task_id=task.task_id %}">
+            {% if task.id %}
+                <form method="post" action="{% url 'mark_uncompleted' pk=task.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="incomplete" value="True">
-                    <button type="submit">Incomplete Task</button>
+                    <button type="submit">Mark as pending</button>
                 </form>
             {% else %}
                 <!-- Handle the case where task.id is None or empty -->

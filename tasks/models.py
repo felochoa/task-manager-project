@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 class Task(models.Model):
-    task_id = models.AutoField(primary_key=True)
+    #task_id = models.AutoField(primary_key=True)
     author = models.ForeignKey("auth.User" ,on_delete=models.CASCADE, default="felipito")
     title = models.CharField(max_length=200)
     date = models.DateField()

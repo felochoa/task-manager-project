@@ -1,18 +1,24 @@
 {% load static %}
+
 <html>
-    <header>
-        
-        
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
-        <a href="{%url 'home'%}">Home</a> 
-        
-        <a href="{%url 'about'%}">About</a>
-    
-        <a href="{%url 'tasks'%}">Task manager</a>
-    
-        <a href="{%url 'completed_tasks'%}">Completed tasks</a>
-    
-    </header>
-    
-    {% block content %} {% endblock content %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <title>Task Manager</title>
+</head>
+<body>
+
+<header>
+    <a href="{% url 'home' %}">Home</a> 
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'tasks' %}">Pending tasks</a>
+    <a href="{% url 'completed_tasks' %}">Completed tasks</a>
+
+    <div class="nav-right">
+        <a href="{% url 'create_task' %}">+ New task</a>
+    </div>
+</header>
+
+{% block content %} {% endblock content %}
+
+</body>
 </html>

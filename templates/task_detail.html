@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-{% load static %}
+
 <div class="task-entry">
     <h2>{{ task.title }}</h2>
     <p>Task Date: {{ task.date }}</p>
     <p>Task Time: {{ task.task_time }}</p>
     <p>Description: {{ task.details }}</p>
-    <p>Task id: {{ task.task_id }}</p>
-    <form method="post" action="{% url 'mark_completed' task.task_id %}">
+
+    <form method="post" action="{% url 'mark_completed' task.id %}">
         {% csrf_token %}
         <input type="submit" value="Mark Completed">
     </form>
+    <p><a href="{% url 'task_edit' task.pk %}">+ Edit this task </a></p>
+    <p><a href="{% url 'task_delete' task.pk %}">+ Delete this task</a></p>
+
 </div>
 {% endblock %}
