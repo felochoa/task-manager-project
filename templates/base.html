@@ -16,6 +16,16 @@
     <div class="nav-right">
         <a href="{% url 'create_task' %}">+ New task</a>
     </div>
+
+    {% if user.is_authenticated %}
+    <p>Hi {{ user.username }}!</p>
+    <p><a href="{% url 'logout' %}">Log out</a></p>
+    {% else %}
+    <p>You are not logged in.</p>
+    <a href="{% url 'login' %}">Log In</a> |
+    <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+
 </header>
 
 {% block content %} {% endblock content %}

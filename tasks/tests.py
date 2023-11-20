@@ -65,17 +65,6 @@ class TaskTest(TestCase):
     
     ####################################################################################
     #tests for create, delete, edit views
-    """ def test_task_create_view(self):
-        response = self.client.post(reverse("create_task"), {"title": "new task", "date": "2023-11-16", "author":self.user.id, "task_time": "11:00", "details": "new task"})
-        #print(response.content)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("task_detail", kwargs={'pk': Task.objects.last().pk}))  # Verifica que la redirección ocurra correctamente
-
-    def test_task_edit_view(self):
-        response = self.client.post(reverse("task_edit",kwargs={'pk': Task.objects.last().pk}), {"title": "updated task", "date": "2023-11-16", "task_time": "11:00", "details": "updated detail of task"})
-        #print(response.content)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse("task_detail", kwargs={'pk': Task.objects.last().pk}))   """
 
     def test_task_create_view(self):
         response = self.client.post(reverse("create_task"), {"title": "new task","date":"2023-11-16", "author":self.user.id, "task_time": "11:00", "details": "new task"})
