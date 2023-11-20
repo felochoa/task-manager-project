@@ -1,0 +1,30 @@
+header a {
+    color: red;
+    }
+h1 {
+    color: green;
+    }
+    
+body {
+    font-family: sans-serif;
+}
+
+.task-item {
+    background-color: #6d6262;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-right {
+    float: right; /* Hace que el div flote a la derecha */
+}
+
+.nav-right a {
+    color: #fff; /* Color del texto del enlace */
+    background-color: #3498db; /* Color de fondo del enlace */
+    padding: 8px 12px; /* Relleno del enlace */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 4px; /* Agrega esquinas redondeadas al enlace */
+    margin-left: 10px; /* Añade un margen a la izquierda del enlace */
+}
