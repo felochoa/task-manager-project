@@ -6,24 +6,34 @@
 
     <ul>
         {% for task in completed_tasks %}
-        <li><a href="{% url 'task_detail' task.id %}">Title: {{task.title}}</a></li>
-        <li>Task Date: {{task.date}}</li>
-        <li>Task Time: {{task.task_time}}</li>
-        <li>Description: {{task.details}}</li>
-        <li>Task id: {{task.id}}</li>
-        <li>
-            Move task to task manager:
-            {% if task.id %}
-                <form method="post" action="{% url 'mark_uncompleted' pk=task.id %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="incomplete" value="True">
-                    <button type="submit">Mark as pending</button>
-                </form>
-            {% else %}
-                <!-- Handle the case where task.id is None or empty -->
-                <p>Task ID is not valid.</p>
-            {% endif %}
+    <div class="card">
+        <div class="card-header">
+            <li><a href="{% url 'task_detail' task.id %}">Title: {{task.title}}</a></li>
+        </div>
+        <div class="card-body">
+            <li>Task Date: {{task.date}}</li>
+            <li>Task Time: {{task.task_time}}</li>
+            <li>Description: {{task.details}}</li>
+            <li>Task id: {{task.id}}</li>
+            <li>{{task.is_completed}}</li>  
+        </div>
+        <div class="card-footer text-center text-muted">
+                {% if task.id %}
+                    <form method="post" action="{% url 'mark_uncompleted' pk=task.id %}">
+                        {% csrf_token %}
+                        <div name="incomplete" {% if task.is_completed %}checked{% endif %}>
+                        <input type="submit" value="Mark as pending">
+                    </form>
+                {% else %}
+                    <!-- Handle the case where task.id is None or empty -->
+                    <p>Task ID is not valid.</p>
+                {% endif %}
+        </div>
+    </div> 
+    <br />
+    {% endfor %}
 
-        {% endfor %}
+
+
     </ul>
 {% endblock content %}

@@ -7,8 +7,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Task
 
-
-
 # Create your views here.
 class TaskDeleteView(LoginRequiredMixin, DeleteView):
     model = Task
@@ -32,7 +30,6 @@ class TaskUpdateView(LoginRequiredMixin, UpdateView):
     model = Task
     template_name = "task_edit.html"
     fields = ["title", "date", "task_time", "details"]
-    
  
 
 class TaskDetailView(LoginRequiredMixin, DetailView):
