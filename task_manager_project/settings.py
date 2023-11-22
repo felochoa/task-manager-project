@@ -151,4 +151,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'taskemailmanager@gmail.com'
-EMAIL_HOST_PASSWORD = 'keuj vksh nqht nmnd'
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
