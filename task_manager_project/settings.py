@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'task_manager_project.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.dj_db_url("DATABASE_URL")
+    "default": env.dj_db_url("DATABASE_URL")
 }
 
 
@@ -128,9 +128,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 #collect all static in a folder for deployment
-STATIC_ROOT = BASE_DIR / "staticfiles" # new
+STATIC_ROOT = BASE_DIR / "staticfiles" 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-#STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 
 # Default primary key field type
